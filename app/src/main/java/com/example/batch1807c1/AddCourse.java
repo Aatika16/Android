@@ -50,9 +50,10 @@ public class AddCourse extends AppCompatActivity {
 
                     ArrayList<Course_getter>  sc_list=new ArrayList<Course_getter>();
                     while(data.moveToNext()){
+                        String cs_id=data.getString(0);
                         String cs_name=data.getString(1);
                         String cs_image=data.getString(2);
-                        sc_list.add(new Course_getter(cs_name,cs_image));
+                        sc_list.add(new Course_getter(cs_id,cs_name,cs_image));
                     }
                     customAdapter cs=new customAdapter(getApplicationContext(),sc_list);
                     lv.setAdapter(cs);

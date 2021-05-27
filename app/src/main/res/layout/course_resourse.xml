@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<LinearLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="horizontal">
 
     <TextView
         android:id="@+id/cs_name"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
+        android:text="Course name"
+        android:gravity="center"
+        android:layout_weight="1"
         tools:layout_editor_absoluteX="18dp"
         tools:layout_editor_absoluteY="26dp" />
 
@@ -17,7 +21,25 @@
         android:id="@+id/cs_iamge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TextView"
-        tools:layout_editor_absoluteX="109dp"
-        tools:layout_editor_absoluteY="22dp" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        android:gravity="center"
+        android:text="course image"
+        android:layout_weight="1"
+        tools:layout_editor_absoluteX="98dp"
+        tools:layout_editor_absoluteY="26dp" />
+
+    <ImageView
+        android:id="@+id/c_edit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:src="@drawable/ic_baseline_edit_24" />
+
+    <ImageView
+        android:id="@+id/c_delt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:gravity="center"
+        android:src="@drawable/ic_baseline_delete_24" />
+</LinearLayout>

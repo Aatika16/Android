@@ -62,6 +62,15 @@ db.execSQL("Drop table if exists "+tb2_name);
             return true;
         }
     }
+    public boolean DeleteCourse(String id){
+        SQLiteDatabase db=getWritableDatabase();
+        long res=db.delete(tb2_name,tb2_col1_Id+"=?",new String[]{id});
+        if(res==-1)
+            return false;
+        else
+            return true;
+    }
+
     public Cursor login(String UsernamE,String Password){
         SQLiteDatabase db=getWritableDatabase();
         Cursor data=db.rawQuery("select * from "+tb1_name+" where "+tb1_col2_Username+" = ? and "+tb1_col3_Password+" = ? ",new String[]{UsernamE,Password});
