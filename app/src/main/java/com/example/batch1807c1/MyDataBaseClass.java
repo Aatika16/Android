@@ -71,6 +71,20 @@ db.execSQL("Drop table if exists "+tb2_name);
             return true;
     }
 
+    public boolean UpdateCourse(String id,String cs,String cs_image){
+        SQLiteDatabase db=getWritableDatabase();
+        ContentValues cv=new ContentValues();
+        cv.put(tb2_col2_Course_Name,cs);
+        cv.put(tb2_col3_Course_Image,cs_image);
+        long res= db.update(tb2_name,cv,"Id = ?",new String[]{id});
+        if(res==-1){
+            return false;
+        }
+        else{
+            return true;
+        }
+    }
+
     public Cursor login(String UsernamE,String Password){
         SQLiteDatabase db=getWritableDatabase();
         Cursor data=db.rawQuery("select * from "+tb1_name+" where "+tb1_col2_Username+" = ? and "+tb1_col3_Password+" = ? ",new String[]{UsernamE,Password});

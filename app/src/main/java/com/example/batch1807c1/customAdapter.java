@@ -1,6 +1,7 @@
 package com.example.batch1807c1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -67,7 +68,18 @@ public class customAdapter extends BaseAdapter {
 
             }
         });
-
+        edit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent x=new Intent(c,AddCourse.class);
+                x.putExtra("Id",obj.getId());
+                x.putExtra("name",obj.getCoursename());
+                x.putExtra("image",obj.getCourseimage());
+                x.putExtra("pagename","edit");
+                x.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK); // new line
+                c.startActivity(x);
+            }
+        });
 
         return convertView;
     }
