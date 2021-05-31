@@ -33,12 +33,22 @@ if(res.getCount()==0){
     Toast.makeText(Login.this, "Sorry! Login Failed", Toast.LENGTH_SHORT).show();
 }
 else{
-    Toast.makeText(Login.this, "Congratulations! You are now Logged in", Toast.LENGTH_SHORT).show();
     SharedPreferences sharedPreferences=getSharedPreferences(sharedPref,MODE_PRIVATE);
     SharedPreferences.Editor eed=sharedPreferences.edit();
     eed.putString(sp_name,edtxt_username_lg.getText().toString());
     eed.apply();
-    startActivity(new Intent(Login.this,Dashboard.class));
+    while(res.moveToNext()){
+        String role_name=res.getString(3);
+        if(role_name.equals("Admin")){
+            Toast.makeText(Login.this, "Congratulations! You are now Logged in", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Login.this,AdminDashbaord.class));
+        }
+        else{
+            Toast.makeText(Login.this, "Congratulations! You are now Logged in", Toast.LENGTH_SHORT).show();
+            startActivity(new Intent(Login.this,Dashboard.class));
+        }
+    }
+
 }
             }
         });

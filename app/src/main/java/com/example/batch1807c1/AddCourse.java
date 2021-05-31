@@ -33,16 +33,23 @@ public class AddCourse extends AppCompatActivity {
             btn_course_insert.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Boolean res = db.InsertCourse(edtxt_coursename.getText().toString(), edtxt_course_image.getText().toString());
-                    if (res) {
-                        Toast.makeText(AddCourse.this, "Course Inserted Successfully", Toast.LENGTH_SHORT).show();
-                        edtxt_course_image.setText("");
-                        edtxt_coursename.setText("");
-                    } else {
-                        Toast.makeText(AddCourse.this, "Insertion Failed please try again", Toast.LENGTH_SHORT).show();
-                        edtxt_course_image.setText("");
-                        edtxt_coursename.setText("");
-                    }
+                  boolean chck=  db.checking_unique(edtxt_coursename.getText().toString(),"Courses");
+                  if(chck){
+                      Toast.makeText(AddCourse.this, "Course name already exist", Toast.LENGTH_SHORT).show();
+                  }
+                  else{
+                      Boolean res = db.InsertCourse(edtxt_coursename.getText().toString(), edtxt_course_image.getText().toString());
+                      if (res) {
+                          Toast.makeText(AddCourse.this, "Course Inserted Successfully", Toast.LENGTH_SHORT).show();
+                          edtxt_course_image.setText("");
+                          edtxt_coursename.setText("");
+                      } else {
+                          Toast.makeText(AddCourse.this, "Insertion Failed please try again", Toast.LENGTH_SHORT).show();
+                          edtxt_course_image.setText("");
+                          edtxt_coursename.setText("");
+                      }
+                  }
+
                 }
             });
         }

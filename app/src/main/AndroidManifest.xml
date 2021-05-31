@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Batch1807c1">
-        <activity android:name=".AddCourse"></activity>
+        <activity android:name=".AdminDashbaord"></activity>
+        <activity android:name=".AddCourse" />
         <activity android:name=".Dashboard" />
         <activity android:name=".SplashScreen">
             <intent-filter>
