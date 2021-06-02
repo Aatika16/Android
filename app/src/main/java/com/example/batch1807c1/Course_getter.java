@@ -3,9 +3,9 @@ package com.example.batch1807c1;
 public class Course_getter {
     String id;
     String coursename;
-    String courseimage;
+    byte[] courseimage;
 
-    public Course_getter(String id,String coursename, String courseimage) {
+    public Course_getter(String id,String coursename,  byte[] courseimage) {
         this.id = id;
         this.coursename = coursename;
         this.courseimage = courseimage;
@@ -27,11 +27,11 @@ public class Course_getter {
         this.coursename = coursename;
     }
 
-    public String getCourseimage() {
+    public  byte[] getCourseimage() {
         return courseimage;
     }
 
-    public void setCourseimage(String courseimage) {
+    public void setCourseimage( byte[] courseimage) {
         this.courseimage = courseimage;
     }
 }

@@ -42,14 +42,15 @@ public class customAdapter extends BaseAdapter {
     public View getView(int position, View convertView, ViewGroup parent) {
         convertView=View.inflate(c,R.layout.course_resourse,null);
         TextView tv_csname=convertView.findViewById(R.id.cs_name);
-        TextView tv_csiamge=convertView.findViewById(R.id.cs_iamge);
+        ImageView img_csiamge=convertView.findViewById(R.id.cs_iamge);
         ImageView edit=convertView.findViewById(R.id.c_edit);
         ImageView delete=convertView.findViewById(R.id.c_delt);
        //assiging tag
         delete.setTag(position);
         Course_getter obj=arr.get(position);
         tv_csname.setText(obj.getCoursename());
-        tv_csiamge.setText(obj.getCourseimage());
+        //tv_csiamge.setText(obj.getCourseimage());
+        img_csiamge.setImageBitmap(ImageConversion.getImage(obj.getCourseimage()));
         delete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View x) {

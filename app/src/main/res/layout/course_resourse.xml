@@ -13,19 +13,15 @@
         android:layout_height="wrap_content"
         android:text="Course name"
         android:gravity="center"
-        android:layout_weight="1"
-        tools:layout_editor_absoluteX="18dp"
-        tools:layout_editor_absoluteY="26dp" />
+        android:layout_weight="1" />
 
-    <TextView
+    <ImageView
         android:id="@+id/cs_iamge"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="30dp"
+        android:layout_height="40dp"
         android:gravity="center"
-        android:text="course image"
         android:layout_weight="1"
-        tools:layout_editor_absoluteX="98dp"
-        tools:layout_editor_absoluteY="26dp" />
+        android:src="@mipmap/ic_launcher_round" />
 
     <ImageView
         android:id="@+id/c_edit"

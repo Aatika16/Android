@@ -37,7 +37,7 @@ static final String tb0_col2_Rolename="Rolename";
     public void onCreate(SQLiteDatabase db) {
 db.execSQL("create table "+tb0_name+" ("+tb0_col1_Id+" Integer Primary key autoincrement, "+tb0_col2_Rolename+" text unique) ");
 db.execSQL("create table "+tb1_name+" ("+tb1_col1_Id+" Integer Primary key autoincrement, "+tb1_col2_Username+" text unique, "+tb1_col3_Password+" text,"+tb1_col4_Role_name+" Integer, foreign key ("+tb1_col4_Role_name+") references "+tb0_name+" ("+tb0_col1_Id+")) ");
-db.execSQL("create table "+tb2_name+" ("+tb2_col1_Id+" Integer Primary key autoincrement, "+tb2_col2_Course_Name+" text unique, "+tb2_col3_Course_Image+" text) ");
+db.execSQL("create table "+tb2_name+" ("+tb2_col1_Id+" Integer Primary key autoincrement, "+tb2_col2_Course_Name+" text unique, "+tb2_col3_Course_Image+" BLOB) ");
 
 db.execSQL("insert into "+tb0_name+"(Rolename) values ('Admin')");
 db.execSQL("insert into "+tb0_name+"(Rolename) values ('Users')");
@@ -63,7 +63,7 @@ db.execSQL("Drop table if exists "+tb2_name);
           return true;
       }
     }
-    public boolean InsertCourse(String cs,String cs_image){
+    public boolean InsertCourse(String cs,byte[] cs_image){
         SQLiteDatabase db=getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(tb2_col2_Course_Name,cs);
